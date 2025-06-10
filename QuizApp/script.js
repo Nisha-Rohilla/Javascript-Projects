@@ -1,7 +1,7 @@
 let questions = [
     {
         question: 'Which is the smallest continent in the world',
-        answer: [
+        answers: [
             { text: 'Asia', correct: false },
             { text: 'Australia', correct: true },
             { text: 'Arctic', correct: false },
@@ -10,7 +10,7 @@ let questions = [
     },
     {
         question: 'Which is the largest desert in the world',
-        answer: [
+        answers: [
             { text: 'Kalahari', correct: false },
             { text: 'Gobi', correct: true },
             { text: 'Sahara', correct: false },
@@ -19,7 +19,7 @@ let questions = [
     },
     {
         question: 'What is the capital of Australia?',
-        answer: [
+        answers: [
             { text: 'Sydney', correct: false },
             { text: 'Melbourne', correct: false },
             { text: 'Canberra', correct: true },
@@ -28,7 +28,7 @@ let questions = [
     },
     {
         question: 'Which planet is known as the Red Planet?',
-        answer: [
+        answers: [
             { text: 'Earth', correct: false },
             { text: 'Jupiter', correct: false },
             { text: 'Mars', correct: true },
@@ -37,7 +37,7 @@ let questions = [
     },
     {
         question: 'Who wrote the play "Romeo and Juliet"?',
-        answer: [
+        answers: [
             { text: 'William Wordsworth', correct: false },
             { text: 'William Shakespeare', correct: true },
             { text: 'Charles Dickens', correct: false },
@@ -46,7 +46,7 @@ let questions = [
     },
     {
         question: 'Which is the longest river in the world?',
-        answer: [
+        answers: [
             { text: 'Amazon', correct: false },
             { text: 'Yangtze', correct: false },
             { text: 'Mississippi', correct: false },
@@ -73,4 +73,13 @@ function showQuestion() {
     let currentQuestion = questions[currentQuestionIndex];
     let questionNo = currentQuestionIndex + 1;
     questionElement.innerHTML = questionNo + '. ' + currentQuestion.question;
+
+    currentQuestion.answers.forEach(answer => {
+        const button = document.createElement('button');
+        button.innerHTML = answer.text;
+        button.classList.add('btn');
+        answerButton.appendChild(button)
+    });
 }
+
+starQuiz();
